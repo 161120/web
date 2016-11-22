@@ -1,0 +1,11 @@
+extends ./layouts/explore
+
+block content
+
+  - var latestLists = util.listAsColums(latestQuestions);
+
+  .row
+    .col-sm-6
+      +fineQuestions(latestLists['0'] || [])
+    .col-sm-6
+      +fineQuestions(latestLists['1'] || [])

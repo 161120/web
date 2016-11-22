@@ -1,0 +1,41 @@
+
+mixin fineQuestions(list)
+  ul.list.ot-q.view-fine
+    each item in list
+      +fineQuestion(item)
+
+mixin fineQuestion(item)
+  - var link = links.q(item.slug);
+  - var title = item.shortTitle || item.title;
+  li.li.ot-q.view-fine
+    .lii
+      a.li-media.fine-image(href=link, title=item.title)
+        img(src=util.questionImageSrc(item), alt=title)
+        h3.title= title
+      +qTopAnswers(item.answers, item)
+
+mixin qTopAnswers(answers, question, options)
+  - options = options || {};
+  - options.limit = options.limit || 3;
+  - var i = 0;
+  ul.list.ot-qa.view-qtop
+    while (i<options.limit && i<answers.length)
+      - var answer = answers[i++];
+      li.li.lii.ot-qa
+        +answerIcon(answer, question)
+        .title= answer.title
+        +answerVotes(answer)
+
+mixin answerIcon(answer, question)
+  .qa-icon(class=('tp-' + question.type + (answer.type ? (' qatp-' + answer.type) : null)))
+    if (question.type === 'top')
+      img(src=itil.entipicUrl(answer.title, 'x', question.lang, question.country), alt=answer.title)
+
+mixin answerVotes(answer, question)
+  .qa-votes
+    if (answer.countVotes>0)
+      | +
+      = answer.countVotes
+    else
+      | 0
+

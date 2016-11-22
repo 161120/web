@@ -1,0 +1,85 @@
+doctype html
+html(lang=currentCulture.language)
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title= site.title
+    if (site.description)
+      meta(name='description', content=site.description)
+    if (site.keywords)
+      meta(name='keywords', content=site.keywords)
+    block styles
+    if (NODE_ENV==='production')
+      link(type='text/css', rel='stylesheet', href='//cdn.rawgit.com/161120/web/v0/public/css/main.min.css')
+    else
+      link(type='text/css', rel='stylesheet', href='/css/main.css')
+    if (site.canonical)
+      link(rel='canonical', href=site.canonical)
+    link(rel='shortcut icon', href=config.favicon)
+
+    if (config.facebookId)
+      meta(property='fb:app_id', content=config.facebookId)
+    if (config.facebookAdmins)
+      meta(property='fb:admins', content=config.facebookAdmins)
+    if (config.facebookPageId)
+      meta(property="fb:pages", content=config.facebookPageId)
+    if (config.facebookPublisher)
+      link(rel='publisher', href='https://facebook.com/'+ config.facebookPublisher)
+    meta(property='og:site_name', content=config.name)
+    meta(property='og:updated_time', content=currentDate.toISOString())
+    meta(property='og:locale', content=site.simpleLocale)
+    block meta
+    if (site.feeds)
+      each item in site.feeds
+        link(rel='alternate', type='application/rss+xml', title=item.title, href=item.url)
+
+    link(rel='dns-prefetch', href='//tpc.googlesyndication.com')
+    link(rel='dns-prefetch', href='//pagead2.googlesyndication.com')
+
+  body(class=('language-'+currentCulture.language))
+    #fb-root
+    #page(class=site.pageLayoutCss)
+      header#page-header
+        .container
+          .row
+            .col-xs-3.col-sm-2
+              a#header-logo(title=config.name, href=links.home())
+            .col-xs-9.col-sm-7
+              | Menu
+
+            .col-sm-3.hidden-xs
+              | Plus
+              
+      main#page-main
+        .container
+          block page_main_content
+
+      footer#page-footer
+        .container
+          .row
+            #footer-info.col-sm-5.col-xs-7
+              = __('contact')
+              |: 
+              a info@top20.md
+              br
+              | Version: 
+              = site.version
+              br
+            .col-sm-4.hidden-xs
+            .col-sm-3.col-xs-5
+
+
+    if (noGoogleAds!==true)
+      script(async='', src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
+
+    //- script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
+    //- script(type='text/javascript', src='http://assets.ournetcdn.net/top20/js/main-60d49ea4.min.js')
+    block scripts
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', '#{config.googleAnalyticsId}', '#{config.domain}');
+      ga('send', 'pageview');
