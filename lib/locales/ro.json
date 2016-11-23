@@ -1,5 +1,9 @@
 {
-	"language_ro": "language_ro",
-	"country_ro": "country_ro",
-	"contact": "contact"
+	"language_ro": "Romana",
+	"country_ro": "Romania",
+	"contact": "Contact",
+	"tops": "Topuri",
+	"features": "Caracteristici",
+	"login": "Login",
+	"login_with_format": "Login cu %s"
 }

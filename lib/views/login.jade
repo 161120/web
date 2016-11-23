@@ -1,0 +1,23 @@
+extends ./layouts/root
+
+block page_main_content
+  .row
+    .col-md-2.col-lg-3
+    .col-lg-6.col-md-8.col-sm-12
+      br
+      h2.page-title= __('login')
+      h4.lead= subTitle
+      ul.soclog(data-redirect=redirectUrl)
+        li.soclog-item.facebook
+          a(href=links.auth.facebook({redirect: redirectUrl}))
+            i
+            = util.format(__('login_with_format'), 'Facebook')
+
+        //- li.soclog-item.google
+        //-   a(href=links.auth.google({redirect: redirectUrl}))
+        //-     i
+        //-     = util.format(__('login_with_format'), 'Google')
+
+
+      br
+      br

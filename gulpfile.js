@@ -28,11 +28,21 @@ gulp.task('css', ['css-main']);
 
 // js
 //
-gulp.task('js', function() {
-	// return js.out({
-	// 	src: './lib/assets/js/**/*',
-	// 	dest: './lib/public/js'
-	// });
+gulp.task('js-main', function() {
+	return js.out({
+		src: ['./lib/assets/js/popup.js', './lib/assets/js/soclog.js'],
+		dest: './lib/public/js',
+		name: 'main.js'
+	});
 });
 
-gulp.task('default', ['css', 'js', 'img']);
+gulp.task('js', ['js-main']);
+
+// Rerun the task when a file changes
+gulp.task('watch', function() {
+	gulp.watch('./lib/assets/js/**/*', ['js']);
+	gulp.watch('./lib/assets/img/**/*', ['img']);
+	gulp.watch('./lib/assets/less/**/*', ['css']);
+});
+
+gulp.task('default', ['css', 'js', 'img', 'watch']);

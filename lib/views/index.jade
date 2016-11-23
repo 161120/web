@@ -6,6 +6,9 @@ block content
 
   .row
     .col-sm-6
-      +fineQuestions(latestLists['0'] || [])
+      +fineQuestions(latestLists['0'])
     .col-sm-6
-      +fineQuestions(latestLists['1'] || [])
+      +fineQuestions(latestLists['1'])
+
+block aside
+  +fineQuestions(popularQuotes)

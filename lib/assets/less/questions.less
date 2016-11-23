@@ -1,0 +1,48 @@
+.list.ot-q {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.li.ot-q.view-fine {
+    padding-bottom: 20px;
+}
+
+.ot-q.view-fine > .lii {
+    border-radius: 2px;
+    background: #fefefe;
+    overflow: hidden;
+    .box-shadow(0 1px 4px 0 rgba(0,0,0,0.14));
+}
+
+.li-media {
+    .title {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: #fff;
+        #gradient > .vertical( rgba(1,1,1,0),rgba(1, 1, 1, .8));
+        margin: 0px;
+        padding: 12px;
+        text-shadow: 1px 1px 1px rgba(100, 100, 100, .8);
+    }
+}
+
+.fine-image {
+    position: relative;
+    display: block;
+    height: 0;
+    padding: 0;
+    padding-bottom: 52%;
+    overflow: hidden;
+    > img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border: 0;
+        background-color: @second-color;
+    }
+}

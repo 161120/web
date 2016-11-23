@@ -1,8 +1,9 @@
 
 mixin fineQuestions(list)
-  ul.list.ot-q.view-fine
-    each item in list
-      +fineQuestion(item)
+  if (list && list.length > 0)
+    ul.list.ot-q.view-fine
+      each item in list
+        +fineQuestion(item)
 
 mixin fineQuestion(item)
   - var link = links.q(item.slug);
@@ -15,16 +16,17 @@ mixin fineQuestion(item)
       +qTopAnswers(item.answers, item)
 
 mixin qTopAnswers(answers, question, options)
-  - options = options || {};
-  - options.limit = options.limit || 3;
-  - var i = 0;
-  ul.list.ot-qa.view-qtop
-    while (i<options.limit && i<answers.length)
-      - var answer = answers[i++];
-      li.li.lii.ot-qa
-        +answerIcon(answer, question)
-        .title= answer.title
-        +answerVotes(answer)
+  if (answers && answers.length > 0)
+    - options = options || {};
+    - options.limit = options.limit || 3;
+    - var i = 0;
+    ul.list.ot-qa.view-qtop
+      while (i<options.limit && i<answers.length)
+        - var answer = answers[i++];
+        li.li.lii.ot-qa
+          +answerIcon(answer, question)
+          .title= answer.title
+          +answerVotes(answer)
 
 mixin answerIcon(answer, question)
   .qa-icon(class=('tp-' + question.type + (answer.type ? (' qatp-' + answer.type) : null)))

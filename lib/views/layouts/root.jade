@@ -46,7 +46,10 @@ html(lang=currentCulture.language)
             .col-xs-3.col-sm-2
               a#header-logo(title=config.name, href=links.home())
             .col-xs-9.col-sm-7
-              | Menu
+              ul#header-menu
+                each item, id in questionTypes
+                  li
+                    a(href=links.type(id))= item.name
 
             .col-sm-3.hidden-xs
               | Plus
@@ -73,8 +76,11 @@ html(lang=currentCulture.language)
     if (noGoogleAds!==true)
       script(async='', src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
 
-    //- script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
-    //- script(type='text/javascript', src='http://assets.ournetcdn.net/top20/js/main-60d49ea4.min.js')
+    script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js')
+    if (NODE_ENV==='production')
+      script(src='//cdn.rawgit.com/161120/web/v0/public/js/main.min.js')
+    else
+      script(src='/js/main.js')
     block scripts
     script.
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
