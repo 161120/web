@@ -1,3 +1,4 @@
 {
-  "locales": ["en"]
+  "locales": ["en"],
+  "host": "localhost:41646"
 }

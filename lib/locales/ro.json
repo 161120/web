@@ -5,5 +5,22 @@
 	"tops": "Topuri",
 	"features": "Caracteristici",
 	"login": "Login",
-	"login_with_format": "Login cu %s"
+	"login_with_format": "Login cu %s",
+	"country_md": "country_md",
+	"inactive_questions": "Întrebări invalide",
+	"add_a_question": "Adaugă o întrebare",
+	"title": "Titlu",
+	"short_title": "Titlu scurt",
+	"description": "Descriere",
+	"type": "Tip",
+	"save": "Salvează",
+	"answer_vote": "Tip votare",
+	"answer_vote_multi": "Multiplu",
+	"answer_vote_one": "Unic",
+	"image_url": "Adresă url imagine",
+	"max_answers": "Nr. maxim răspunsuri",
+	"answer_type": "Tip răspunsuri",
+	"answer_type_positive": "Pozitive",
+	"answer_type_negative": "Negative",
+	"answer_type_entity": "Entitate"
 }

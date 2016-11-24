@@ -4,5 +4,7 @@
   "type": "/${0}",
   "auth": {
     "facebook": "/auth/facebook"
-  }
+  },
+  "login": "/login",
+  "logout": "/logout"
 }
