@@ -1,0 +1,15 @@
+extends ./layouts/line
+
+block content
+  .row
+    .col-sm-8
+      .col-sm-offset-3.col-sm-7
+        .page-header
+          h1= __('edit_a_question')
+      include ./includes/update_question_form
+    .col-sm-4
+      .group
+        .group-title
+          h3= __('inactive_questions')
+        .group-content
+          +fineQuestions(inactiveQuestions)

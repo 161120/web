@@ -1,0 +1,24 @@
+extends ./layouts/explore
+
+block content
+  - var link = links.q(question.slug);
+  if (userIsModerator)
+    .panel
+      .panel-body
+        a.btn.btn-primary(role='button',href=links.questions.edit(question.id))= __('edit')
+        if (question.status!=='active')
+          a.btn.btn-success.api-action(role='button',data-action=links.api.questions.update(question.id),data-data='{"status":"active"}',data-method='PUT')= __('activate')
+  .lii.ot-q.view-fine
+    a.li-media.fine-image(href=link, title=question.title)
+      img(src=util.questionImageSrc(question, 'large'), alt=question.title)
+      h1.title= question.title
+    .li-body
+      if (answers && answers.length > 0)
+        ul.list.ot-qa.view-qa
+          each (answer in answers)
+            li.li.lii.ot-qa
+              +answerIcon(answer, question)
+              .title= answer.title
+              +answerVotes(answer)
+      
+

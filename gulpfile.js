@@ -30,7 +30,7 @@ gulp.task('css', ['css-main']);
 //
 gulp.task('js-main', function() {
 	return js.out({
-		src: ['./lib/assets/js/popup.js', './lib/assets/js/soclog.js'],
+		src: ['./lib/assets/js/popup.js', './lib/assets/js/informer.js', './lib/assets/js/soclog.js', './lib/assets/js/api.js', './lib/assets/js/api-form.js', './lib/assets/js/api-action.js'],
 		dest: './lib/public/js',
 		name: 'main.js'
 	});

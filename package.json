@@ -45,6 +45,7 @@
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
     "request": "^2.79.0",
+    "slug": "^0.9.1",
     "transparentcache": "^1.0.0",
     "urlset": "^0.6.0",
     "viewdata": "^0.1.4",

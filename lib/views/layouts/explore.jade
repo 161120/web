@@ -10,3 +10,9 @@ block page_main_content
       aside.page-aside
         block aside
         include ../includes/aside_ad
+        if (popularQuotes)
+          .group
+            .group-title
+              h3= __('pupular_questions')
+            .group-content
+              +fineQuestions(popularQuestions)

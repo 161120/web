@@ -1,0 +1,54 @@
+form.form-horizontal.api-form(data-action=links.api.questions.update(question.id), data-method='PUT')
+  .form-group
+    label.col-sm-3.control-label= __('title')
+    .col-sm-9
+      input.form-control(type='text', name='title', placeholder=__('title'), required='required', pattern='.{10,100}', maxlength=100, value=question.title)
+
+  .form-group
+    .col-sm-3.control-label= __('short_title')
+    .col-sm-9
+      input.form-control(type='text', name='shortTitle', placeholder=__('short_title'), maxlength=100, value=question.shortTitle)
+
+  .form-group
+    .col-sm-3.control-label= __('description')
+    .col-sm-9
+      textarea.form-control(name='description', placeholder=__('description'), pattern='.{50,500}')= question.description
+
+  .form-group
+    .col-sm-3.control-label= __('image_url')
+    .col-sm-9
+      input.form-control(type='url', name='imageUrl', placeholder=__('image_url'))
+
+  .form-group
+    label.col-sm-3.control-label= __('type')
+    .col-sm-4
+      select.form-control(name='type', required='required')
+        option(value='tops',selected=question.type==='tops')= __('tops')
+        option(value='features',selected=question.type==='features')= __('features')
+
+  .form-group
+    label.col-sm-3.control-label= __('answer_vote')
+    .col-sm-4
+      select.form-control(name='answerVote', required='required')
+        option(value='multi',selected=question.answerVote==='multi')= __('answer_vote_multi')
+        option(value='one',selected=question.answerVote==='one')= __('answer_vote_one')
+
+  .form-group
+    label.col-sm-3.control-label= __('max_answers')
+    .col-sm-4
+      input.form-control(type='number', name='maxAnswers', required='required', min=2, max=10, value=question.maxAnswers)
+
+  .form-group
+    .col-sm-3.control-label= __('answer_type')
+    .col-sm-4
+      select.form-control(name='answerType')
+        option(value=null) ---
+        option(value='positive',selected=question.answerType==='positive')= __('answer_type_positive')
+        option(value='negative',selected=question.answerType==='negative')= __('answer_type_negative')
+        option(value='entity',selected=question.answerType==='entity')= __('answer_type_entity')
+
+  .form-group
+    .col-sm-offset-3.col-sm-4
+      button.btn.btn-primary(type='submit')= __('save')
+
+

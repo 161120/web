@@ -1,4 +1,5 @@
 {
   "locales": ["en"],
-  "host": "localhost:41646"
+  "host": "localhost:41646",
+  "nick": "161120"
 }

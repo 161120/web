@@ -1,4 +1,4 @@
-form.form-horizontal.api-form(data-api-action='question.create')
+form.form-horizontal.api-form(data-action='/api/questions')
   .form-group
     label.col-sm-3.control-label= __('title')
     .col-sm-9
@@ -42,7 +42,7 @@ form.form-horizontal.api-form(data-api-action='question.create')
     .col-sm-3.control-label= __('answer_type')
     .col-sm-4
       select.form-control(name='answerType')
-        option ---
+        option(value=null) ---
         option(value='positive')= __('answer_type_positive')
         option(value='negative')= __('answer_type_negative')
         option(value='entity')= __('answer_type_entity')

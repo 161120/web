@@ -1,0 +1,21 @@
+#informer {
+    position: fixed;
+    top: 10px;
+    left: 0px;
+    right: 0px;
+    display: none;
+    .message {
+        display: block;
+        max-width: 500px;
+        margin: 0px auto;
+        padding: 6px 12px;
+        border-radius: 2px;
+        color: #fff;
+        background: @green-color;
+        text-align: center;
+        font-weight: bold;
+        &.error {
+            background: @red-color;
+        }
+    }
+}

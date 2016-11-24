@@ -22,5 +22,10 @@
 	"answer_type": "Tip răspunsuri",
 	"answer_type_positive": "Pozitive",
 	"answer_type_negative": "Negative",
-	"answer_type_entity": "Entitate"
+	"answer_type_entity": "Entitate",
+	"edit_a_question": "Editare întrebare",
+	"edit": "Editare",
+	"activate": "Activare",
+	"active": "Activ",
+	"inactive": "Inactiv"
 }

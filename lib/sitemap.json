@@ -1,10 +1,21 @@
 {
   "home": "/",
   "q": "/q/${0}",
+  "question": "/q/${0}",
   "type": "/${0}",
   "auth": {
     "facebook": "/auth/facebook"
   },
   "login": "/login",
-  "logout": "/logout"
+  "logout": "/logout",
+  "api": {
+    "$path": "/api",
+    "questions": {
+      "$url": "/questions",
+      "update": "/questions/${0}"
+    }
+  },
+  "questions": {
+    "edit": "/questions/${0}/edit"
+  }
 }
